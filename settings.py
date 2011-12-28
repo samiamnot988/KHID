@@ -138,7 +138,7 @@ LOG_LEVEL = "DEBUG"
 LOG_FILE = "rapidsms.log"
 LOG_FORMAT = "[%(name)s]: %(message)s"
 LOG_SIZE = 8192  # 8192 bits = 8 kb
-LOG_BACKUPS = 256  # number of logs to keep
+LOG_BACKUPS = 2  # number of logs to keep
 
 
 # these weird dependencies should be handled by their respective apps,
