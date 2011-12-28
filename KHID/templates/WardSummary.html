@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block title %}Ward Dashboard{% endblock %}
+{% block content %}
+
+  
+
+<div class="module">
+<form action="/KHID/WardSummary/" method="post" style="height:30px; border: 0px;">{% csrf_token %}
+
+Ward: {{ form.ward}}
+ 
+<input type="submit" value="Submit"  />
+ 
+</form>
+ 
+<h2>Symptom Summary for Ward:  {{ward}} </h2>
+    
+
+<table width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Symptom</th>
+	    <th>Report Count</th>
+
+            
+ 
+        </tr>
+    </thead>
+    <tbody>
+             {% for s in symcountbywardbysymptom %}
+            <tr>
+                <td></td>
+                <td>{{s.name}}</td>
+                 <td>{{s.symptomcount}}</td>    
+ 
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+            
+ 
+ 
+
+  </div> 
+ 
+{% endblock %}

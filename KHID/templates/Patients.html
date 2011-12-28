@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block title %}Patients{% endblock %}
+{% block content %}
+
+<div class="module">
+
+<h2>Patients</h2>
+<table width="100%">
+    <thead>
+        <tr>
+            <th>Patient ID</th>
+            <th>First Name</th>
+	    <th>Last Name</th>
+
+ 
+ <th>KUnit ID</th>
+             
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in patients %}
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.fname}}</td>
+                     <td>{{p.lname}}</td>    
+                 
+                <td>{{p.kUnitID}}</td>    
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="toolbar">
+ 
+</div>
+
+</div>
+ 
+ 
+{% endblock %}

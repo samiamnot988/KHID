@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block title %}KUnit Dashboard{% endblock %}
+{% block content %}
+
+  
+
+<div class="module">
+<form action="/KHID/KunitSummary/" method="post" style="height:30px; border: 0px;">{% csrf_token %}
+
+KUnit: {{ form.kunit}}
+ 
+<input type="submit" value="Submit"  />
+ 
+</form>
+ 
+<h2>Symptom Summary for KUnit:  {{kunit}} </h2>
+    
+
+<table width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Symptom</th>
+	    <th>Report Count</th>
+ 
+ 
+        </tr>
+    </thead>
+    <tbody>
+             {% for s in symcountbykunitbysymptom %}
+            <tr>
+                <td></td>
+                <td>{{s.name}}</td>
+                 <td>{{s.symptomcount}}</td>    
+                   
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+            
+ 
+ 
+
+  </div> 
+ 
+{% endblock %}

@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block title %}KHID Dashboard{% endblock %}
+{% block content %}
+
+<div class="module">
+  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart","table"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Symptom');
+        data.addColumn('number', 'Number of Reports');
+        data.addRows(5);
+        data.setValue(0, 0, 'Bleeding');
+        data.setValue(0, 1, 723);
+        data.setValue(1, 0, 'Pelvic Pain');
+        data.setValue(1, 1, 432);
+        data.setValue(2, 0, 'Fever');
+        data.setValue(2, 1, 321);
+        data.setValue(3, 0, 'Discharge');
+        data.setValue(3, 1, 32);
+        data.setValue(4, 0, 'Swelling in Groin');
+        data.setValue(4, 1, 73);
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_pie'));
+        chart.draw(data, {width: 450, height: 300, title: 'Symptoms'});
+ 
+        var data2 = new google.visualization.DataTable();
+        data2.addColumn('string', 'Symptom');
+        data2.addColumn('number', 'Count');
+       
+        data2.addRows(5);
+        data2.setValue(0, 0, 'Bleeding');
+        data2.setValue(0, 1, 723);
+        ;
+        data2.setValue(1, 0, 'Fever');
+        data2.setValue(1, 1, 321);
+     
+        data2.setValue(2, 0, 'Swelling in Groin');
+        data2.setValue(2, 1, 73);
+        
+        data2.setValue(3, 0, 'Pelvic Pain');
+        data2.setValue(3, 1, 432);
+       
+        data2.setValue(4, 0, 'Discharge');
+        data2.setValue(4, 1,  32);
+ 
+
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
+        chart2.draw(data2, {width: 400, height: 240, legend: 'none', title: 'Total Symptoms Reported',
+                          hAxis: {title: 'Symptom', titleTextStyle: {color: 'red'}}
+                         });
+
+        var data3 = new google.visualization.DataTable();
+        data3.addColumn('string', 'KUnit');
+        data3.addColumn('number', 'Reporting Count');
+         
+        data3.addRows(5);
+        data3.setValue(0, 0, 'Anugraha');
+        data3.setValue(0, 1, 543);
+       
+        data3.setValue(1, 0, 'Snehadeepam');
+        data3.setValue(1, 1, 134);
+       
+        data3.setValue(2, 0, 'Anjali');
+        data3.setValue(2, 1, 660);
+        
+        data3.setValue(3, 0, 'Asha');
+        data3.setValue(3, 1, 103 );
+
+  data3.setValue(4, 0, 'Deepam');
+        data3.setValue(4, 1, 231);
+ 
+
+ 
+
+        var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_div3'));
+        chart3.draw(data3, {width: 400, height: 240, legend: 'none', title: 'Total Symptoms By KUnit',  
+                          hAxis: {title: 'KUnit', titleTextStyle: {color: 'red'}}
+                         });
+ 
+        var data4 = new google.visualization.DataTable();
+        data4.addColumn('string', 'Year');
+        data4.addColumn('number', 'Sales');
+      
+        data4.addRows(4);
+        data4.setValue(0, 0, '2004');
+        data4.setValue(0, 1, 1000);
+      
+        data4.setValue(1, 0, '2005');
+        data4.setValue(1, 1, 1170);
+      
+        data4.setValue(2, 0, '2006');
+        data4.setValue(2, 1, 660);
+     
+        data4.setValue(3, 0, '2007');
+        data4.setValue(3, 1, 1030);
+      
+
+ 
+
+        var chart4 = new google.visualization.ColumnChart(document.getElementById('chart_ward'));
+        chart4.draw(data4, {width: 400, height: 240, title: 'Total Symptoms By Ward',
+                          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+                         });
+ 
+
+
+  var data5 = new google.visualization.DataTable();
+        data5.addColumn('string', 'Ward');
+        data5.addColumn('number', 'Reporting Count');
+         
+
+ 
+        data5.addRows(5);
+        data5.setCell(0, 0, 'Chappa Kadappuram');
+        data5.setCell(0, 1, 243);
+      
+        data5.setCell(1, 0, 'Beach Ward');
+        data5.setCell(1, 1, 654, '654');
+     
+        data5.setCell(2, 0, 'Malakha');
+        data5.setCell(2, 1, 125, '125');
+   
+        data5.setCell(3, 0, 'Kadavanthra');
+        data5.setCell(3, 1, 700, '200');
+        
+        data5.setCell(4, 0, 'Sree Durga');
+        data5.setCell(4, 1, 700, '200');
+
+        var table5 = new google.visualization.Table(document.getElementById('chart_table2'));
+        table5.draw(data5, {showRowNumber: true});
+
+  var data6 = new google.visualization.DataTable();
+        data6.addColumn('string', 'Quick Totals');
+        
+        data6.addRows(8);
+        data6.setCell(0, 0, '346');
+        
+      
+        data6.setCell(1, 0, 'Reporters');
+        
+     
+        data6.setCell(2, 0, '43');
+        
+   
+        data6.setCell(3, 0, 'Reporting KUnits');
+        
+        data6.setCell(4, 0, '123');
+        
+   
+        data6.setCell(5, 0, 'Reporting Wards');
+              data6.setCell(6, 0, '212');
+        
+   
+        data6.setCell(7, 0, 'Reported Symptoms');
+     
+
+        var table6 = new google.visualization.Table(document.getElementById('chart_table3'));
+        table6.draw(data6, {showRowNumber: false});
+      }
+    </script>
+ 
+
+ <div id="left" style="width:1000px; height:300px;float:left">
+<div id="chart_div2" style="float:left;width:400px" ></div>
+<div id="chart_ward" style="float:left;width:300px"></div>
+
+<div id="chart_div3" style="float:left; width:300px"></div>
+
+
+</div>
+
+
+<div id="center" style="width:900px; float:left">
+<div id = "first" style=" float:left">
+<div >
+View Totals For Symptom: 
+<select name="mydropdown">
+<option value="Bleeding">Bleeding</option>
+<option value="Fever">Fever</option>
+<option value="Groin">Groin Swelling</option>
+<option value="des">Discharge</option>
+<option value="Pelvicpain">Pelvic Pain</option>
+</select>
+</div>
+<div  >
+List By:
+<select name="mydropdown2">
+<option value="Ward">Ward</option>
+<option value="KUnit">Kunit</option>
+ 
+</select>
+</div>
+<div id="chart_table2" style=" width:300px ;height:300px;">
+ 
+</div>
+</div>
+<div id="chart_pie" style="float:left" ></div>
+
+<div id="chart_table3" style="float:left;width:100px">
+ 
+</div>
+</div>
+
+ 
+
+ </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block title %}Hierarchy{% endblock %}
+{% block content %}
+      
+<div class="module">
+
+
+
+<h2>Wards</h2>
+        {% for w in wards %}
+ 	<h3 style="color:black !important;"> Ward ID:  {{w.id}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     Ward Name:  {{w.name}}</h3>
+
+
+
+<table width="100%">
+    <thead>
+        <tr>
+           <th></th>
+            <th>KUnit</th>
+	 
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in w.kunit_set.all %}
+            <tr>
+               <td></td>
+                <td>{{p.name}}</td>
+                 
+ 
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+        {% endfor %}
+
+ 
+ 
+ 
+</div>
+{% endblock %}

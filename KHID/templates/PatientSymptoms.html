@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block title %}Patient Symptoms{% endblock %}
+{% block content %}
+
+<div class="module">
+ <div>
+<form action="/KHID/PatientSymptoms/" method="post" style="height:30px; border: 0px;">{% csrf_token %}
+ 
+
+Patient: {{ form.patient}}
+ 
+
+<input type="submit" value="Submit"  />
+ 
+</form>
+<h2>Patient Symptoms</h2>
+         
+ 	<h3 style="color:black !important;"> Patient Name:  {{patients.fname}} {{patients.lname}} </h3>
+
+ 
+
+<table width="100%">
+    <thead>
+        <tr>
+            <th></th>
+            
+	    <th>Date Reported</th>
+
+            <th>Symptom Code</th>
+ 
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in patients.patientsymptom_set.all %}
+            <tr>
+                <td></td>
+                
+                 <td>{{p.dateReported}}</td>    
+                 <td>{{p.symptomCode}}</td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+ 
+
+<div class="toolbar">
+ 
+</div>
+
+</div>
+ 
+ 
+{% endblock %}
